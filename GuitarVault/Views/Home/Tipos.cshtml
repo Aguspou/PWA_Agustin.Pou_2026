@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Tipos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .img-guitarra-wrapper {
+        height: 200px;
+        overflow: hidden;
+        background-color: #1a1a1a;
+    }
+
+        .img-guitarra-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+    .card:hover .img-guitarra-wrapper img {
+        transform: scale(1.05);
+    }
+</style>
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-marca">Tipos de Guitarras</h2>
+        <p class="text-secondary fs-5">Cada guitarra tiene su propia personalidad y propósito musical</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+
+        <div class="col">
+            <div class="card bg-dark border border-secondary h-100 text-white">
+                <div class="img-guitarra-wrapper">
+                    <img src="/images/Criolla.png" alt="Guitarra Clásica">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title text-amarillo fs-4">Guitarra Clásica</h3>
+                    <p class="card-text text-secondary flex-grow-1">
+                        También conocida como guitarra criolla o española, utiliza cuerdas de nylon que
+                        producen un sonido cálido y suave. Es la elección perfecta para música clásica,
+                        flamenco y bossa nova.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge border border-marca text-marca bg-transparent">Cuerdas de Nylon</span>
+                        <span class="badge border border-marca text-marca bg-transparent">Mástil Ancho</span>
+                        <span class="badge border border-marca text-marca bg-transparent">Sonido Cálido</span>
+                    </div>
+                    <button class="btn fw-bold boton-calcular" data-tipo="clasica"
+                            style="background-color: var(--amarillo); color: #1a1a1a;">
+                        Ver Tensión Estimada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-dark border border-secondary h-100 text-white">
+                <div class="img-guitarra-wrapper">
+                    <img src="/images/Electrica.png" alt="Guitarra Eléctrica">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title text-amarillo fs-4">Guitarra Eléctrica</h3>
+                    <p class="card-text text-secondary flex-grow-1">
+                        Utiliza pastillas magnéticas para convertir las vibraciones en señales eléctricas.
+                        Su cuerpo sólido reduce la retroalimentación. Infinitas posibilidades sonoras
+                        con pedales y amplificadores.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge border border-marca text-marca bg-transparent">Pastillas</span>
+                        <span class="badge border border-marca text-marca bg-transparent">Amplificada</span>
+                        <span class="badge border border-marca text-marca bg-transparent">Efectos</span>
+                    </div>
+                    <button class="btn fw-bold boton-calcular" data-tipo="electrica"
+                            style="background-color: var(--amarillo); color: #1a1a1a;">
+                        Ver Tensión Estimada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-dark border border-secondary h-100 text-white">
+                <div class="img-guitarra-wrapper">
+                    <img src="/images/Acustica.png" alt="Guitarra Acústica">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h3 class="card-title text-amarillo fs-4">Guitarra Acústica</h3>
+                    <p class="card-text text-secondary flex-grow-1">
+                        Con cuerdas de acero, ofrece un sonido brillante y proyección potente.
+                        Su caja de resonancia amplifica naturalmente las vibraciones.
+                        Perfecta para folk, country, pop y rock acústico.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge border border-marca text-marca bg-transparent">Cuerdas de Acero</span>
+                        <span class="badge border border-marca text-marca bg-transparent">Caja Resonante</span>
+                        <span class="badge border border-marca text-marca bg-transparent">Sonido Brillante</span>
+                    </div>
+                    <button class="btn fw-bold boton-calcular" data-tipo="acustica"
+                            style="background-color: var(--amarillo); color: #1a1a1a;">
+                        Ver Tensión Estimada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+        <h3 class="text-center fs-3 fw-bold text-amarillo mb-4">Comparación Técnica</h3>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped table-bordered align-middle">
+                <thead>
+                    <tr style="background-color: var(--naranja);">
+                        <th>Característica</th>
+                        <th>Clásica</th>
+                        <th>Acústica</th>
+                        <th>Eléctrica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-amarillo fw-bold">Tipo de Cuerdas</td>
+                        <td>Nylon</td>
+                        <td>Acero</td>
+                        <td>Acero niquelado</td>
+                    </tr>
+                    <tr>
+                        <td class="text-amarillo fw-bold">Ancho del Mástil</td>
+                        <td>52mm (amplio)</td>
+                        <td>43-44mm (medio)</td>
+                        <td>42-43mm (estrecho)</td>
+                    </tr>
+                    <tr>
+                        <td class="text-amarillo fw-bold">Número de Trastes</td>
+                        <td>18-19 trastes</td>
+                        <td>20 trastes</td>
+                        <td>21-24 trastes</td>
+                    </tr>
+                    <tr>
+                        <td class="text-amarillo fw-bold">Peso Promedio</td>
+                        <td>1.5 - 2 kg</td>
+                        <td>1.8 - 2.5 kg</td>
+                        <td>3 - 4.5 kg</td>
+                    </tr>
+                    <tr>
+                        <td class="text-amarillo fw-bold">Amplificación</td>
+                        <td>Natural</td>
+                        <td>Natural / Pickup</td>
+                        <td>Eléctrica (obligatoria)</td>
+                    </tr>
+                    <tr>
+                        <td class="text-amarillo fw-bold">Géneros Principales</td>
+                        <td>Clásica, Flamenco</td>
+                        <td>Folk, Pop, Country</td>
+                        <td>Rock, Metal, Blues</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/Script.js"></script>

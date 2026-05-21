@@ -1,0 +1,87 @@
+﻿@model GuitarVault.Models.ContactoModel
+
+@{
+    ViewData["Title"] = "Contacto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-marca">Contacto</h2>
+        <p class="text-secondary fs-5">¿Tenés alguna pregunta sobre guitarras? ¡Escribinos!</p>
+    </div>
+
+    <div class="row g-5">
+
+        <div class="col-lg-8">
+            <form class="bg-secondary bg-opacity-25 p-4 border border-secondary"
+                  id="formularioContacto" asp-action="Contacto" asp-controller="Home" method="post">
+
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label text-amarillo fw-bold">Nombre Completo</label>
+                    <input asp-for="Nombre" class="form-control bg-dark text-white border-secondary" required>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label text-amarillo fw-bold">Email</label>
+                    <input asp-for="Email" class="form-control bg-dark text-white border-secondary" required>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Guitarra" class="form-label text-amarillo fw-bold">¿Qué tipo de guitarra te interesa?</label>
+                    <select asp-for="Guitarra" class="form-select bg-dark text-white border-secondary">
+                        <option value="">Seleccioná una opción</option>
+                        <option value="clasica">Guitarra Clásica</option>
+                        <option value="acustica">Guitarra Acústica</option>
+                        <option value="electrica">Guitarra Eléctrica</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Mensaje" class="form-label text-amarillo fw-bold">Mensaje</label>
+                    <textarea asp-for="Mensaje" class="form-control bg-dark text-white border-secondary" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="btn w-100 py-3 fw-bold text-uppercase text-white"
+                        style="background-color: var(--naranja);">
+                    Enviar Mensaje
+                </button>
+
+            </form>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-column gap-3">
+
+            <div class="tarjeta-dato bg-secondary bg-opacity-25 p-4 text-center">
+                <div class="fs-1 mb-2">📧</div>
+                <h3 class="fs-5 text-amarillo">Email</h3>
+                <p class="text-secondary mb-0">info@guitarvault.com</p>
+            </div>
+
+            <div class="tarjeta-dato bg-secondary bg-opacity-25 p-4 text-center">
+                <div class="fs-1 mb-2">📱</div>
+                <h3 class="fs-5 text-amarillo">Teléfono</h3>
+                <p class="text-secondary mb-0">+54 11 1234-5678</p>
+            </div>
+
+            <div class="tarjeta-dato bg-secondary bg-opacity-25 p-3">
+                <div class="border border-marca mb-2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168869188005!2d-58.38155999999999!3d-34.603722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac417b73859%3A0x7d01878b27e4e0b5!2sObelisco!5e0!3m2!1ses-419!2sar!4v1633544321000!5m2!1ses-419!2sar"
+                            width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <p class="text-secondary small mb-0">Estamos en el centro de Buenos Aires (Referencia Obelisco)</p>
+            </div>
+
+            <div class="tarjeta-dato bg-secondary bg-opacity-25 p-4 text-center">
+                <div class="fs-1 mb-2">🕐</div>
+                <h3 class="fs-5 text-amarillo">Horario</h3>
+                <p class="text-secondary mb-0">Lun - Vie: 9:00 - 18:00</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/Script.js"></script>

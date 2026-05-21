@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .hero {
+        height: 100vh;
+        background: linear-gradient(to bottom, #0d0d0d, #2a2a2a);
+    }
+</style>
+
+<section class="hero d-flex align-items-center justify-content-center text-center">
+    <div class="px-3" style="max-width: 800px;">
+        <h1 class="display-1 fw-bold text-marca mb-3">GUITAR VAULT</h1>
+        <p class="fs-4 text-secondary mb-4">Descubre el fascinante mundo de las guitarras</p>
+        <a asp-controller="Home" asp-action="Tipos"
+           class="btn btn-lg px-5 py-3 fw-bold text-white"
+           style="background-color: var(--naranja);">
+            Explorar Guitarras
+        </a>
+    </div>
+</section>
