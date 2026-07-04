@@ -61,6 +61,9 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Contacto">Contacto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Guitarra" asp-action="Index">Guitarra</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -68,7 +71,7 @@
 
     <main class="pt-5 mt-3">
         @RenderBody()
-    </main>
+    </main> 
 
     <footer class="bg-black border-top border-marca py-4 mt-5 text-center">
         <p class="text-secondary mb-0">
@@ -77,5 +80,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

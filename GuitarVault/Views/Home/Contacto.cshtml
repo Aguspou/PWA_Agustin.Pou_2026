@@ -12,6 +12,13 @@
         <p class="text-secondary fs-5">¿Tenés alguna pregunta sobre guitarras? ¡Escribinos!</p>
     </div>
 
+    @if (ViewBag.Enviado == true)
+    {
+        <div class="alert alert-success text-center mb-4">
+            ¡Gracias! Tu mensaje fue enviado y guardado correctamente.
+        </div>
+    }
+
     <div class="row g-5">
 
         <div class="col-lg-8">
@@ -21,11 +28,13 @@
                 <div class="mb-3">
                     <label asp-for="Nombre" class="form-label text-amarillo fw-bold">Nombre Completo</label>
                     <input asp-for="Nombre" class="form-control bg-dark text-white border-secondary" required>
+                    <span asp-validation-for="Nombre" class="text-warning"></span>
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="Email" class="form-label text-amarillo fw-bold">Email</label>
                     <input asp-for="Email" class="form-control bg-dark text-white border-secondary" required>
+                    <span asp-validation-for="Email" class="text-warning"></span>
                 </div>
 
                 <div class="mb-3">
@@ -42,6 +51,7 @@
                 <div class="mb-4">
                     <label asp-for="Mensaje" class="form-label text-amarillo fw-bold">Mensaje</label>
                     <textarea asp-for="Mensaje" class="form-control bg-dark text-white border-secondary" rows="6" required></textarea>
+                    <span asp-validation-for="Mensaje" class="text-warning"></span>
                 </div>
 
                 <button type="submit" class="btn w-100 py-3 fw-bold text-uppercase text-white"

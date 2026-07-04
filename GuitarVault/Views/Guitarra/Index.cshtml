@@ -1,0 +1,72 @@
+﻿@model List<GuitarVault.Models.GuitarraModel>
+
+@{
+    ViewData["Title"] = "Guitarras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+
+    <h2 class="text-marca fw-bold">Nuestras Guitarras</h2>
+
+    <div class="mb-3">
+        <a class="btn fw-bold text-white" style="background-color: var(--naranja);" asp-action="Crear" asp-controller="Guitarra">Agregar Guitarra</a>
+    </div>
+    <hr class="border-secondary" />
+
+    @if (Model.Count == 0)
+    {
+        <p class="text-secondary">Todavía no hay guitarras cargadas.</p>
+    }
+    else
+    {
+        <table class="table table-dark table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Tipo</th>
+                    <th>Año</th>
+                    <th>Disponible</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="~/images/@item.Imagen" alt="@item.Nombre" width="60" /></td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Marca</td>
+                        <td>@item.Tipo</td>
+                        <td>@item.Anio</td>
+                        <td>@(item.Disponible ? "Sí" : "No")</td>
+                        <td>
+                            <a class="btn btn-sm text-white" style="background-color: var(--amarillo);" asp-action="Detalle" asp-controller="Guitarra" asp-route-id="@item.Id">Editar</a>
+                            <a class="btn btn-sm btn-danger" asp-action="Eliminar" asp-controller="Guitarra" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="text-center mt-3">
+            @if (ViewBag.PaginaActual > 1)
+            {
+                <a class="btn btn-outline-light btn-sm" asp-action="Index" asp-route-pagina="@(ViewBag.PaginaActual - 1)">Anterior</a>
+            }
+            @for (int i = 1; i <= ViewBag.TotalPaginas; i++)
+            {
+                <a class="btn btn-sm @(i == ViewBag.PaginaActual ? "text-white" : "btn-outline-light")"
+                   style="@(i == ViewBag.PaginaActual ? "background-color: var(--naranja);" : "")"
+                   asp-action="Index" asp-route-pagina="@i">@i</a>
+            }
+            @if (ViewBag.PaginaActual < ViewBag.TotalPaginas)
+            {
+                <a class="btn btn-outline-light btn-sm" asp-action="Index" asp-route-pagina="@(ViewBag.PaginaActual + 1)">Siguiente</a>
+            }
+        </div>
+    }
+
+</div>

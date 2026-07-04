@@ -1,0 +1,80 @@
+﻿@model GuitarVault.Models.GuitarraModel
+
+@{
+    ViewData["Title"] = "Crear Guitarra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <h2 class="text-marca fw-bold">Agregar Guitarra</h2>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div asp-validation-summary="ModelOnly" class="text-warning"></div>
+
+            <form asp-action="Crear" asp-controller="Guitarra" method="post">
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Nombre"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Nombre" />
+                    <span asp-validation-for="Nombre" class="text-warning"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Marca"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Marca" />
+                    <span asp-validation-for="Marca" class="text-warning"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Tipo"></label>
+                    <select class="form-select bg-dark text-white border-secondary" asp-for="Tipo">
+                        <option value="">Seleccioná un tipo</option>
+                        <option value="Clásica">Clásica</option>
+                        <option value="Acústica">Acústica</option>
+                        <option value="Eléctrica">Eléctrica</option>
+                    </select>
+                    <span asp-validation-for="Tipo" class="text-warning"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Anio"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Anio" />
+                    <span asp-validation-for="Anio" class="text-warning"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Descripcion"></label>
+                    <textarea class="form-control bg-dark text-white border-secondary" asp-for="Descripcion" rows="4"></textarea>
+                    <span asp-validation-for="Descripcion" class="text-warning"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Imagen"></label>
+                    <select class="form-select bg-dark text-white border-secondary" asp-for="Imagen">
+                        <option value="">Seleccioná una imagen</option>
+                        <option value="Criolla.png">Criolla.png</option>
+                        <option value="Acustica.png">Acustica.png</option>
+                        <option value="Electrica.png">Electrica.png</option>
+                    </select>
+                    <span asp-validation-for="Imagen" class="text-warning"></span>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input class="form-check-input" asp-for="Disponible" />
+                    <label class="form-check-label text-amarillo fw-bold" asp-for="Disponible"></label>
+                </div>
+
+                <div class="mb-2">
+                    <button class="btn fw-bold text-white" style="background-color: var(--naranja);" type="submit">Crear</button>
+                    <a class="btn btn-outline-light" asp-action="Index" asp-controller="Guitarra">Volver</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

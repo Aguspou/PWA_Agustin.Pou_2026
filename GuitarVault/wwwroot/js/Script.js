@@ -1,77 +1,4 @@
-﻿var enlaces = document.querySelectorAll('.enlace-nav');
-var secciones = document.querySelectorAll('.seccion-pagina');
-var botonInicio = document.querySelector('.boton-hero');
-var botonesCalcular = document.querySelectorAll('.boton-calcular');
-
-function mostrarSeccion(cualSeccion) {
-
-    for (var i = 0; i < secciones.length; i++) {
-        secciones[i].classList.remove('activo');
-    }
-
-
-    // muestro solo la que quiero
-    var seccion = document.getElementById(cualSeccion);
-    seccion.classList.add('activo');
-
-    //Act
-    for (var i = 0; i < enlaces.length; i++) {
-        enlaces[i].classList.remove('activo');
-        if (enlaces[i].getAttribute('data-pagina') == cualSeccion) {
-            enlaces[i].classList.add('activo');
-        }
-    }
-
-    window.scrollTo(0, 0);
-}
-
-//SPA
-for (var i = 0; i < enlaces.length; i++) {
-    enlaces[i].onclick = function (evento) {
-        evento.preventDefault();
-        var pag = this.getAttribute('data-pagina');
-        mostrarSeccion(pag);
-    }
-}
-
-
-if (botonInicio) {
-    botonInicio.onclick = function () {
-        var pag = this.getAttribute('data-pagina');
-        mostrarSeccion(pag);
-    }
-}
-
-var formulario = document.getElementById('formularioContacto');
-
-if (formulario) {
-    formulario.onsubmit = function (evento) {
-        evento.preventDefault();
-
-        var nombre = document.getElementById('nombre').value;
-        var email = document.getElementById('email').value; // Este es el correo destino
-        var guitarra = document.getElementById('guitarra').value;
-        var mensaje = document.getElementById('mensaje').value;
-
-        var cuerpoMensaje = "¡Hola " + nombre + "! Gracias por tu consulta." + "%0D%0A%0D%0A" +
-            "Aquí tienes la copia de tu mensaje enviado a Guitar Vault:" + "%0D%0A" +
-            "-----------------------------" + "%0D%0A" +
-            "Tu Nombre: " + nombre + "%0D%0A" +
-            "Tu Email: " + email + "%0D%0A" +
-            "Guitarra de Interés: " + guitarra + "%0D%0A" +
-            "Mensaje Enviado: " + mensaje;
-
-        var mailtoLink = "mailto:" + email +
-            "?subject=Copia de tu Consulta a Guitar Vault&body=" + encodeURIComponent(cuerpoMensaje);
-
-
-        window.open(mailtoLink, '_self');
-        alert('Gracias ' + nombre + '! Se abrirá tu programa de correo para que puedas enviarte una copia del mensaje a tu email (' + email + ').');
-
-        formulario.reset();
-
-    }
-}
+﻿var botonesCalcular = document.querySelectorAll('.boton-calcular');
 
 // FUNCIONALIDAD DE CÁLCULO SIMPLE (En Kilogramos)
 function calcularTensionEstimada(tipo) {
@@ -104,6 +31,3 @@ for (var i = 0; i < botonesCalcular.length; i++) {
     }
 }
 
-
-// para ver si lee bien la pagina
-// console.log(cualSeccion);

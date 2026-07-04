@@ -1,3 +1,4 @@
+using GuitarVault.BD;
 using GuitarVault.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -5,6 +6,12 @@ namespace GuitarVault.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _dbContext;
+
+        public HomeController(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IActionResult Index()
         {
             return View();
@@ -33,8 +40,14 @@ namespace GuitarVault.Controllers
         [HttpPost]
         public IActionResult Contacto(ContactoModel model)
         {
-            // Por ahora solo redirige.. en el futuro acá va la persistencia
-            return RedirectToAction("Index");
+            if (!ModelState.IsValid) return View(model);
+            model.Fecha = DateTime.Now;
+            _dbContext.Contactos.Add(model);
+            _dbContext.SaveChanges();
+            ViewBag.Enviado = true;
+            return View(new ContactoModel());
         }
+
+
     }
 }

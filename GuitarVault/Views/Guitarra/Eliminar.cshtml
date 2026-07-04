@@ -1,0 +1,53 @@
+﻿@model GuitarVault.Models.GuitarraModel
+
+@{
+    ViewData["Title"] = "Eliminar Guitarra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <h2 class="text-marca fw-bold">Eliminar Guitarra</h2>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="text-center mb-3">
+                <img src="~/images/@Model.Imagen" alt="@Model.Nombre" width="140" />
+            </div>
+
+            <form asp-action="Eliminar" asp-controller="Guitarra" method="post" id="formEliminarGuitarra">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Nombre"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Nombre" disabled />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Marca"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Marca" disabled />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Tipo"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Tipo" disabled />
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label text-amarillo fw-bold" asp-for="Anio"></label>
+                    <input class="form-control bg-dark text-white border-secondary" asp-for="Anio" disabled />
+                </div>
+
+                <div class="mb-2">
+                    <button class="btn btn-danger fw-bold" type="submit">Eliminar</button>
+                    <a class="btn btn-outline-light" asp-action="Index" asp-controller="Guitarra">Volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('formEliminarGuitarra').onsubmit = function () {
+        return confirm('¿Seguro que querés eliminar esta guitarra?');
+    }
+</script>
